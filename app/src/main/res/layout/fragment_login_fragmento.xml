@@ -7,6 +7,7 @@
     tools:ignore="ExtraText"
     tools:context=".LoginFragmento">
 
+
     <ImageView
         android:id="@+id/icono"
         android:layout_width="100dp"
