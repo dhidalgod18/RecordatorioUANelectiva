@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="ExtraText"
+    tools:context=".LoginFragmento">
+
+    <ImageView
+        android:id="@+id/icono"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="70dp"
+        android:src="@drawable/icono"
+        tools:ignore="ContentDescription" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="180dp"
+        android:fontFamily="@font/chewy"
+        android:text="@string/Facilita_tu_vida"
+        android:textSize="20sp"/>
+    <ImageView
+        android:id="@+id/imguser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/usuario2"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="233dp"
+
+        tools:ignore="ContentDescription" />
+    <EditText
+        android:id="@+id/txtUser"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="280dp"
+        android:autofillHints="username"
+        android:hint="@string/user"
+        android:inputType="text" />
+
+    <ImageView
+        android:id="@+id/imgpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="54dp"
+        android:layout_marginTop="330dp"
+        android:src="@drawable/pass1"
+
+        android:contentDescription="@string/password"
+        tools:ignore="ContentDescription" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="300dp"
+        android:inputType="textPassword"
+        android:hint="@string/password"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="380dp"
+        android:autofillHints="password1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="580dp"
+            android:backgroundTint="@color/azulceleste"
+            android:onClick="loginOnclick"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/iniciar"
+            tools:ignore="ButtonStyle"
+
+            />
+
+        <Button
+            android:id="@+id/btnRegistrarse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="580dp"
+            android:backgroundTint="@color/azulceleste"
+            android:onClick="registrarseOnClick"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/registrar"
+
+
+            tools:ignore="ButtonStyle" />
+
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PROYECTOELECTIVAUI</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Facilita_tu_vida">Facilita tu vida</string>
+    <string name="iniciar">Iniciar</string>
+    <string name="password">Password</string>
+    <string name="registrar">Registrar</string>
+    <string name="user">User</string>
+</resources>
