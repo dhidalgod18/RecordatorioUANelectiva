@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_registrar"
+            android:icon="@drawable/servicio"
+            android:title="@string/registrar_servicio" />
+        <item
+            android:id="@+id/nav_calcular_pago"
+            android:icon="@drawable/pago"
+            android:title="@string/calcular_pago" />
+        <item
+            android:id="@+id/nav_gasto_mensual"
+            android:icon="@drawable/mensual"
+            android:title="@string/gasto_mensual" />
+        <item
+            android:id="@+id/nav_notificaciones"
+            android:icon="@drawable/notificacion"
+            android:title="@string/notificaciones" />
+    </group>
+</menu>

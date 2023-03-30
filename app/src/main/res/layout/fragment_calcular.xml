@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.calcular.Calcular">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/text_seleccione_servicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/chewy"
+        android:text="@string/seleccione_el_servicio"
+        />
+    <TextView
+        android:id="@+id/text_cantidad_consumo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/chewy"
+        android:text="@string/cantidad_de_consumo1"
+        />
+    <EditText
+        android:id="@+id/campocantidadconsumo"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginStart="20dp"
+        android:hint="@string/cantidad_de_consumo"
+        android:inputType="number"
+        android:autofillHints="number" />
+
+    <TextView
+        android:id="@+id/text_valor_unitario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="380dp"
+        android:layout_marginStart="20dp"
+        android:textSize="20sp"
+        android:fontFamily="@font/chewy"
+        android:text="@string/valor_unitario"
+        />
+    <EditText
+        android:id="@+id/campovalorunitario"
+        android:layout_width="300dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="430dp"
+        android:layout_marginStart="20dp"
+        android:hint="@string/valor_unitario"
+        android:inputType="number"
+        android:autofillHints="number" />
+
+    <Button
+        android:id="@+id/btncalculapago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="@color/azulceleste"
+        android:layout_marginTop="580dp"
+        android:text="@string/calcular"
+        tools:ignore="ButtonStyle"
+
+        />
+
+
+
+</FrameLayout>
