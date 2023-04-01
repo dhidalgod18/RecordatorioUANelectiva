@@ -7,6 +7,10 @@ android {
     namespace 'com.example.proyectoelectivaui'
     compileSdk 33
 
+    buildFeatures {
+        viewBinding true
+    }
+
     defaultConfig {
         applicationId "com.example.proyectoelectivaui"
         minSdk 28

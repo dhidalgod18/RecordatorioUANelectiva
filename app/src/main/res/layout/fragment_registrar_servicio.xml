@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.RegistrarServicio.RegistrarServicio">
+
+    <LinearLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top|center_horizontal"
+        android:paddingStart="50dp"
+        android:paddingEnd="50dp"
+        android:orientation="vertical"
+        android:paddingTop="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:fontFamily="@font/chewy"
+            android:text="Nombre del servicio"
+            android:hint="@string/user"
+            android:textSize="25sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingTop="30dp"
+            android:fontFamily="@font/chewy"
+            android:text="Fecha de pago"
+            android:hint="@string/user"
+            android:textSize="25sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:paddingTop="30dp"
+            android:fontFamily="@font/chewy"
+            android:text="Valor a pagar"
+            android:hint="@string/user"
+            android:textSize="25sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:layout_width="500dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="@color/azulceleste"
+            android:text="Agregar servicio"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

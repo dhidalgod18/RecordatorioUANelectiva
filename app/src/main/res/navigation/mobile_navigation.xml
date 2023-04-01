@@ -11,6 +11,11 @@
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
     <fragment
+        android:id="@+id/nav_registrar_servicio"
+        android:name="com.example.proyectoelectivaui.ui.RegistrarServicio.RegistrarServicio"
+        android:label="Registrar servicio"
+        tools:layout="@layout/fragment_registrar_servicio" />
+    <fragment
         android:id="@+id/nav_calcular_pago"
         android:name="com.example.proyectoelectivaui.ui.calcular.Calcular"
         android:label="Calcular Pago"
@@ -20,6 +25,13 @@
         android:name="com.example.proyectoelectivaui.ui.GastoMensual.GastoMensual"
         android:label="Gasto Mensual"
         tools:layout="@layout/fragment_gasto_mensual" />
+    <fragment
+        android:id="@+id/nav_notificaciones"
+        android:name="com.example.proyectoelectivaui.ui.Notifications.Notifications"
+        android:label="Notificaciones"
+        tools:layout="@layout/fragment_notifications" />
+
+
 
 
 </navigation>
