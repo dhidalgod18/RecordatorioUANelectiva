@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".RegistroFragment">
+    tools:context="login.RegistroFragment">
 
     <LinearLayout
         android:id="@+id/title"
@@ -85,7 +85,7 @@
             android:layout_gravity="top|center_horizontal"
             android:autofillHints="username"
             android:hint="@string/password"
-            android:inputType="text" />
+            android:inputType="textPassword" />
 
     </LinearLayout>
 
