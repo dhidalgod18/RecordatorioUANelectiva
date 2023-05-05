@@ -8,6 +8,6 @@ import com.example.proyectoelectivaui.entities.usuarioEntity
 @Dao
 interface usuarioDAO {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveUser(usuario: usuarioEntity)
+    suspend fun saveUser(usuario: usuarioEntity) : Long
 
 }

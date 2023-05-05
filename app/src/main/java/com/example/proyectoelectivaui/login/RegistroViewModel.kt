@@ -11,9 +11,11 @@ class RegistroViewModel(application: Application): AndroidViewModel(application)
     private val db = usuarioDataBase.getInstance(getApplication<Application>().applicationContext)
 
 
-    fun agregar(user: usuarioEntity) {
+    fun agregar(user: usuarioEntity, callback: (Boolean) -> Unit) {
         viewModelScope.launch{
-            db.usuarioDAO().saveUser(user)
+            val result = db.usuarioDAO().saveUser(user)
+            val isSuccess = result > 0
+            callback(isSuccess)
         }
     }
 
