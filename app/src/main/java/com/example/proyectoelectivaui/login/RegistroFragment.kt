@@ -50,15 +50,22 @@ class RegistroFragment : Fragment() {
 
             miViewModel.agregar(usuario) { isSuccess ->
                 if (isSuccess) {
-                    Toast.makeText(requireContext(), "Se ha registrado exitosamente", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Se ha registrado exitosamente",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    binding.txtUser.setText("")
+                    binding.txtPassword.setText("")
                 } else {
-                    Toast.makeText(requireContext(), "Hubo un error durante el registro", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        requireContext(),
+                        "Hubo un error durante el registro",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
 
-            // Se establece el texto en blanco para los campos de texto
-            binding.txtUser.setText("")
-            binding.txtPassword.setText("")
         }
 
     }
