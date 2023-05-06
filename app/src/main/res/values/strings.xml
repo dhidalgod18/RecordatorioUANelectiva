@@ -31,4 +31,7 @@
     <string name="gasto_mes">Gasto mes</string>
     <string name="cantidad_de_consumo1">Cantidad de Consumo</string>
     <string name="notificaciones">Notificaciones</string>
+    <string name="no_tienes_cuenta_registrate">No tienes una cuenta, Registrate</string>
+    <string name="ya_tienes_una_cuenta_inicia_sesi_n">Ya tienes una cuenta? Inicia sesión</string>
+    <string name="registro">Registro</string>
 </resources>
