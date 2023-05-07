@@ -14,4 +14,6 @@ interface usuarioDAO {
     @Query("SELECT * FROM usuario WHERE user = :userName AND password = :password LIMIT 1")
     suspend fun getUser(userName: String, password: String) : usuarioEntity?
 
+
+
 }

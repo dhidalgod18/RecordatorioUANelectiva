@@ -6,16 +6,13 @@
     tools:context=".ui.calcular.Calcular">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/text_seleccione_servicio"
-        android:layout_width="wrap_content"
+    <ListView
+        android:id="@+id/lista_servicios"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="20dp"
-        android:textSize="20sp"
-        android:fontFamily="@font/chewy"
-        android:text="@string/seleccione_el_servicio"
-        />
+        android:layout_marginTop="10dp"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"/>
     <TextView
         android:id="@+id/text_cantidad_consumo"
         android:layout_width="wrap_content"
