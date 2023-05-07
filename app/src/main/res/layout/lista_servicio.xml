@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/textView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:clickable="true"
+     >
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:textColor="@color/black"
+        android:gravity="start"
+        android:text="ejemplo"
+        android:height="50dp"
+        android:textSize="24sp"
+        android:fontFamily="@font/chewy"
+        android:layout_marginStart="16dp"
+
+        />
+</LinearLayout>
