@@ -23,51 +23,54 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:fontFamily="@font/chewy"
             android:text="Nombre del servicio"
             android:hint="@string/user"
             android:textSize="25sp" />
 
         <EditText
+            android:id="@+id/textNombreServicio"
             android:layout_width="match_parent"
+            android:inputType="text"
             android:layout_height="60dp" />
-
-        <TextView
+        <Button
+            android:id="@+id/btn_fecha_pago"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:paddingTop="30dp"
+            android:backgroundTint="@color/azulceleste"
             android:fontFamily="@font/chewy"
-            android:text="Fecha de pago"
-            android:hint="@string/user"
-            android:textSize="25sp" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="60dp" />
+            android:layout_marginTop="60dp"
+            android:textSize="25sp"
+            android:text="Seleccionar fecha de pago" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="start"
             android:paddingTop="30dp"
+            android:layout_marginTop="60dp"
             android:fontFamily="@font/chewy"
             android:text="Valor a pagar"
             android:hint="@string/user"
             android:textSize="25sp" />
 
         <EditText
+            android:id="@+id/textValorPagar"
             android:layout_width="match_parent"
+            android:inputType="text"
             android:layout_height="60dp" />
 
         <Button
+            android:id="@+id/btnGuardar"
             android:layout_width="500dp"
             android:layout_height="60dp"
             android:layout_marginTop="60dp"
             android:backgroundTint="@color/azulceleste"
+            android:fontFamily="@font/chewy"
             android:text="Agregar servicio"
             android:textSize="25sp"/>
+
 
     </LinearLayout>
 

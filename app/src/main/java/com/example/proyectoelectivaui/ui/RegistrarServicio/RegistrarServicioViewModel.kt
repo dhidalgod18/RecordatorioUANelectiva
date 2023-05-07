@@ -1,23 +1,20 @@
-package com.example.proyectoelectivaui.login
+package com.example.proyectoelectivaui.ui.RegistrarServicio
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.proyectoelectivaui.database.usuarioDataBase
-import com.example.proyectoelectivaui.entities.usuarioEntity
+import com.example.proyectoelectivaui.entities.servicioEntity
 import kotlinx.coroutines.launch
 
-class RegistroViewModel(application: Application): AndroidViewModel(application){
+class RegistrarServicioViewModel(application: Application): AndroidViewModel(application) {
     private val db = usuarioDataBase.getInstance(getApplication<Application>().applicationContext)
 
-
-    fun agregar(user: usuarioEntity, callback: (Boolean) -> Unit) {
+    fun agregarServicio(servicio: servicioEntity, callback: (Boolean) -> Unit) {
         viewModelScope.launch{
-            val result = db.usuarioDAO().saveUser(user)
+            val result = db.servicioDAO().saveServicio(servicio)
             val isSuccess = result > 0
             callback(isSuccess)
         }
     }
-
-
 }
