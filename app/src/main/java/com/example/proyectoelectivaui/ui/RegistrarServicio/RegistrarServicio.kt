@@ -1,6 +1,10 @@
 package com.example.proyectoelectivaui.ui.RegistrarServicio
 
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +14,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoelectivaui.databinding.FragmentRegistrarServicioBinding
 import com.example.proyectoelectivaui.entities.servicioEntity
+import com.example.proyectoelectivaui.ui.Notifications.AlarmReceiver
 import java.time.LocalDate
 import java.util.Calendar
 
@@ -75,6 +80,19 @@ class RegistrarServicio : Fragment() {
                     binding.textNombreServicio.setText("")
                     binding.btnFechaPago.setText("")
                     binding.btnFechaPago.text = "Seleccionar fecha de pago"
+
+                    val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                    val intent = Intent(requireContext(), AlarmReceiver::class.java).apply {
+                        action = "com.example.proyectoelectivaui.EVENT_REMINDER"
+                        putExtra("title", servicio.nombreServicio)
+                        putExtra("text", servicio.fechaPago.toString())
+                    }
+                    val pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
+                    val triggerTimeMillis = System.currentTimeMillis() + 120000 // Replace with the desired delay
+
+
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
+
                 } else {
                     Toast.makeText(
                         requireContext(),
