@@ -1,7 +1,9 @@
 package com.example.proyectoelectivaui.login
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -57,10 +59,12 @@ class LoginFragmento : Fragment() {
 
         val user = runBlocking { db.usuarioDAO().getUser(userName, password) }
 
+
         if (user != null) {
             // If the user exists, navigate to MainActivity2
             val loginIntent = Intent(activity, MainActivity2::class.java)
             loginIntent.putExtra("user", user.user)
+            loginIntent.putExtra("id", user.id)
             startActivity(loginIntent)
         } else {
             // If the user does not exist, show an error message

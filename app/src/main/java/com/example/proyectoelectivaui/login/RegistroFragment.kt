@@ -40,33 +40,39 @@ class RegistroFragment : Fragment() {
         miViewModel = ViewModelProvider(this).get(RegistroViewModel::class.java)
 
         binding.btnRegistrarse.setOnClickListener {
-            val user = binding.txtUser.text.toString()
-            val pass = binding.txtPassword.text.toString()
+            val user = binding.txtUser.text.toString().trim()
+            val pass = binding.txtPassword.text.toString().trim()
 
-            val usuario = usuarioEntity(
-                user = user,
-                password = pass
-            )
+            if (user.isEmpty() || pass.isEmpty()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Debe completar todos los campos",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val usuario = usuarioEntity(
+                    user = user,
+                    password = pass
+                )
 
-            miViewModel.agregar(usuario) { isSuccess ->
-                if (isSuccess) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Se ha registrado exitosamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    binding.txtUser.setText("")
-                    binding.txtPassword.setText("")
-                } else {
-                    Toast.makeText(
-                        requireContext(),
-                        "Hubo un error durante el registro",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                miViewModel.agregar(usuario) { isSuccess ->
+                    if (isSuccess) {
+                        Toast.makeText(
+                            requireContext(),
+                            "Se ha registrado exitosamente",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        binding.txtUser.setText("")
+                        binding.txtPassword.setText("")
+                    } else {
+                        Toast.makeText(
+                            requireContext(),
+                            "El usuario ya existe o hubo un error durante el registro",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
             }
-
         }
-
     }
 }
