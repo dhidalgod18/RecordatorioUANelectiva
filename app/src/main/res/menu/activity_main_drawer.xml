@@ -13,10 +13,6 @@
             android:icon="@drawable/pago"
             android:title="@string/calcular_pago" />
         <item
-            android:id="@+id/nav_gasto_mensual"
-            android:icon="@drawable/mensual"
-            android:title="@string/gasto_mensual" />
-        <item
             android:id="@+id/nav_notificaciones"
             android:icon="@drawable/notificacion"
             android:title="@string/notificaciones" />

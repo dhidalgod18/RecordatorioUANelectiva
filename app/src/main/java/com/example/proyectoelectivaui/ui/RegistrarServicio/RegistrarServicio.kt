@@ -34,6 +34,8 @@ class RegistrarServicio : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         miViewModel = ViewModelProvider(this).get(RegistrarServicioViewModel::class.java)
+
+
         binding.btnFechaPago.setOnClickListener {
             // Obtén la fecha actual para mostrarla en el DatePicker por defecto
             val calendar = Calendar.getInstance()
@@ -56,13 +58,12 @@ class RegistrarServicio : Fragment() {
         binding.btnGuardar.setOnClickListener {
 
             val nombre = binding.textNombreServicio.text.toString()
-            val pago = binding.textValorPagar.text.toString()
-            val valorPagar = pago.toDouble()
+            val userID = activity?.intent?.getIntExtra("id", -1) ?: -1
 
             val servicio = servicioEntity(
                 nombreServicio = nombre,
-                valorPagar = valorPagar,
-                fechaPago = fechaPago
+                fechaPago = fechaPago,
+                userId = userID
             )
             miViewModel.agregarServicio(servicio) { isSuccess ->
                 if (isSuccess) {
@@ -72,7 +73,6 @@ class RegistrarServicio : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                     binding.textNombreServicio.setText("")
-                    binding.textValorPagar.setText("")
                     binding.btnFechaPago.setText("")
                     binding.btnFechaPago.text = "Seleccionar fecha de pago"
                 } else {
@@ -87,4 +87,5 @@ class RegistrarServicio : Fragment() {
         }
 
     }
+
 }

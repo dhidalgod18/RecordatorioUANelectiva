@@ -1,36 +1,42 @@
 package com.example.proyectoelectivaui.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
-import android.widget.TextView
-import com.example.proyectoelectivaui.R
+import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectoelectivaui.databinding.ListaServicioBinding
 import com.example.proyectoelectivaui.entities.servicioEntity
 
-class servicioAdapter(val context: Context, val servicios: List<servicioEntity>) : BaseAdapter() {
+class servicioAdapter : RecyclerView.Adapter<servicioAdapter.ServicioViewHolder>() {
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        val view = convertView ?: LayoutInflater.from(context).inflate(R.layout.lista_servicio, parent, false)
+    private var servicios: List<servicioEntity> = emptyList()
 
-        val servicio = servicios[position]
-
-        val name = view.findViewById<TextView>(R.id.name)
-        name.text = servicio.nombreServicio // Aquí estableces el nombre del servicio
-
-        return view
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ServicioViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val binding = ListaServicioBinding.inflate(inflater, parent, false)
+        return ServicioViewHolder(binding)
     }
 
-    override fun getItem(position: Int): Any {
+    override fun onBindViewHolder(holder: ServicioViewHolder, position: Int) {
+        val servicio = servicios[position]
+        holder.bind(servicio)
+    }
+
+    override fun getItemCount(): Int = servicios.size
+
+    fun submitList(newList: List<servicioEntity>) {
+        servicios = newList
+        notifyDataSetChanged()
+    }
+
+    fun getItemAtPosition(position: Int): servicioEntity {
         return servicios[position]
     }
 
-    override fun getItemId(position: Int): Long {
-        return position.toLong()
-    }
+    inner class ServicioViewHolder(private val binding: ListaServicioBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
-    override fun getCount(): Int {
-        return servicios.size
+        fun bind(servicio: servicioEntity) {
+            binding.name.text = servicio.nombreServicio
+        }
     }
 }

@@ -14,4 +14,7 @@ interface servicioDAO {
 
     @Query("SELECT * FROM servicio")
     fun obtenerTodosLosServicios(): LiveData<List<servicioEntity>>
+
+    @Query("SELECT * FROM servicio WHERE userId = :userId")
+    fun obtenerServiciosUsuarioActual(userId: Int): LiveData<List<servicioEntity>>
 }
