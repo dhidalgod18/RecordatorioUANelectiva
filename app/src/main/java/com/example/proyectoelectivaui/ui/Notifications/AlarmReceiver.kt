@@ -11,12 +11,11 @@ import android.os.Build
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
-//import com.example.proyectoelectivaui.Manifest
 import com.example.proyectoelectivaui.R
 import android.Manifest
-import android.app.Activity
+import android.app.PendingIntent
 import android.util.Log
-import androidx.core.app.ActivityCompat
+import com.example.proyectoelectivaui.MainActivity2
 
 class AlarmReceiver : BroadcastReceiver() {
 
@@ -35,16 +34,10 @@ class AlarmReceiver : BroadcastReceiver() {
             if (text != null) {
                 Log.d("texto", text)
             }
-            // Handle the specific alarm action
 
-            // Display a notification
+
+
             showNotification(context, title, text)
-
-            // Play a sound
-            //playSound(context)
-
-            // Start a service or perform other actions as needed
-            //startBackgroundService(context)
         }
     }
 
@@ -56,18 +49,16 @@ class AlarmReceiver : BroadcastReceiver() {
                 Manifest.permission.VIBRATE
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // Handle the case where the permission is not granted
-            // You can show a dialog or request the permission from the user
             return
         }
 
 
-        // Create a notification channel (for devices running Android 8.0 and above)
+        // Crear un canal de notificación (para dispositivos corriendo Android 8.0 y superior)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channel = NotificationChannel(
                 CHANNEL_ID,
                 "Alarm Channel",
-                NotificationManager.IMPORTANCE_DEFAULT
+                NotificationManager.IMPORTANCE_HIGH
             ).apply {
                 lightColor = Color.GREEN
                 enableLights(true)
@@ -78,22 +69,29 @@ class AlarmReceiver : BroadcastReceiver() {
             notificationManager.createNotificationChannel(channel)
         }
 
-        // Create the vibration pattern
+        // Crear el patron de vibración
         val vibrationPattern = longArrayOf(0, 500, 200, 500)
 
 
-        // Create the notification
-        val notification = NotificationCompat.Builder(context, CHANNEL_ID)
+        // Crear la notificación
+        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.notificacion)
             .setContentTitle(title)
             .setContentText("Hacer el pago en " + text)
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setVibrate(vibrationPattern)
-            .build()
+            .setFullScreenIntent(getFullScreenIntent(context), true)
+            .setAutoCancel(true)
 
-        // Show the notification
+
+        // Mostrar la notificación
         val notificationManager = NotificationManagerCompat.from(context)
-        notificationManager.notify(NOTIFICATION_ID, notification)
+        notificationManager.notify(NOTIFICATION_ID, notificationBuilder.build())
+    }
+
+    private fun getFullScreenIntent(context: Context): PendingIntent {
+        val intent = Intent(context, MainActivity2::class.java)
+        return PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 
 }

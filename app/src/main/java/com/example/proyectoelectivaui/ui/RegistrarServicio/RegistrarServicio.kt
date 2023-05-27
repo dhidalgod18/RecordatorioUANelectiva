@@ -88,10 +88,11 @@ class RegistrarServicio : Fragment() {
                         putExtra("text", servicio.fechaPago.toString())
                     }
                     val pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
-                    val triggerTimeMillis = System.currentTimeMillis() + 120000 // Replace with the desired delay
+                    val triggerTimeMillis = System.currentTimeMillis() + 100
 
 
                     alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
+
 
                 } else {
                     Toast.makeText(
