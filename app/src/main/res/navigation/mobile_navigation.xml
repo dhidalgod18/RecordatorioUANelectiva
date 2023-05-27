@@ -18,13 +18,8 @@
     <fragment
         android:id="@+id/nav_calcular_pago"
         android:name="com.example.proyectoelectivaui.ui.calcular.Calcular"
-        android:label="Calcular Pago"
+        android:label="Editar servicios"
         tools:layout="@layout/fragment_calcular" />
-    <fragment
-        android:id="@+id/nav_gasto_mensual"
-        android:name="com.example.proyectoelectivaui.ui.GastoMensual.GastoMensual"
-        android:label="Gasto Mensual"
-        tools:layout="@layout/fragment_gasto_mensual" />
     <fragment
         android:id="@+id/nav_notificaciones"
         android:name="com.example.proyectoelectivaui.ui.Notifications.Notifications"

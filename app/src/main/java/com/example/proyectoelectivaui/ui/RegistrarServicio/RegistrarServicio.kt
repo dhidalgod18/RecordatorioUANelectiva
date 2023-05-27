@@ -1,6 +1,10 @@
 package com.example.proyectoelectivaui.ui.RegistrarServicio
 
+import android.app.AlarmManager
 import android.app.DatePickerDialog
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +14,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoelectivaui.databinding.FragmentRegistrarServicioBinding
 import com.example.proyectoelectivaui.entities.servicioEntity
+import com.example.proyectoelectivaui.ui.Notifications.AlarmReceiver
 import java.time.LocalDate
 import java.util.Calendar
 
@@ -34,6 +39,8 @@ class RegistrarServicio : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         miViewModel = ViewModelProvider(this).get(RegistrarServicioViewModel::class.java)
+
+
         binding.btnFechaPago.setOnClickListener {
             // Obtén la fecha actual para mostrarla en el DatePicker por defecto
             val calendar = Calendar.getInstance()
@@ -56,13 +63,12 @@ class RegistrarServicio : Fragment() {
         binding.btnGuardar.setOnClickListener {
 
             val nombre = binding.textNombreServicio.text.toString()
-            val pago = binding.textValorPagar.text.toString()
-            val valorPagar = pago.toDouble()
+            val userID = activity?.intent?.getIntExtra("id", -1) ?: -1
 
             val servicio = servicioEntity(
                 nombreServicio = nombre,
-                valorPagar = valorPagar,
-                fechaPago = fechaPago
+                fechaPago = fechaPago,
+                userId = userID
             )
             miViewModel.agregarServicio(servicio) { isSuccess ->
                 if (isSuccess) {
@@ -72,9 +78,22 @@ class RegistrarServicio : Fragment() {
                         Toast.LENGTH_SHORT
                     ).show()
                     binding.textNombreServicio.setText("")
-                    binding.textValorPagar.setText("")
                     binding.btnFechaPago.setText("")
                     binding.btnFechaPago.text = "Seleccionar fecha de pago"
+
+                    val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                    val intent = Intent(requireContext(), AlarmReceiver::class.java).apply {
+                        action = "com.example.proyectoelectivaui.EVENT_REMINDER"
+                        putExtra("title", servicio.nombreServicio)
+                        putExtra("text", servicio.fechaPago.toString())
+                    }
+                    val pendingIntent = PendingIntent.getBroadcast(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
+                    val triggerTimeMillis = System.currentTimeMillis() + 100
+
+
+                    alarmManager.set(AlarmManager.RTC_WAKEUP, triggerTimeMillis, pendingIntent)
+
+
                 } else {
                     Toast.makeText(
                         requireContext(),
@@ -87,4 +106,5 @@ class RegistrarServicio : Fragment() {
         }
 
     }
+
 }
